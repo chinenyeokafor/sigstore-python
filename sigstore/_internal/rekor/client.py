@@ -30,11 +30,15 @@ import requests
 
 from sigstore._internal import USER_AGENT
 from sigstore.models import LogEntry
+import configparser
 
 _logger = logging.getLogger(__name__)
 
-DEFAULT_REKOR_URL = "https://rekor.sigstore.dev"
-STAGING_REKOR_URL = "https://rekor.sigstage.dev"
+config = configparser.ConfigParser()
+config.read('stack_config.ini')
+
+DEFAULT_REKOR_URL = config['settings']['rekor-url']
+STAGING_REKOR_URL = config['settings']['rekor-url']
 
 
 @dataclass(frozen=True)

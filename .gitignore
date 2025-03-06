@@ -26,3 +26,9 @@ build
 !sigstore/_store/*.pub
 !test/assets/**
 !test/assets/staging-tuf/**
+
+# Ignore virtual environment
+.venv
+
+#Ignore test artifact
+artifact

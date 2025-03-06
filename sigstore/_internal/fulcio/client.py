@@ -37,11 +37,15 @@ from cryptography.x509 import (
 from sigstore._internal import USER_AGENT
 from sigstore._utils import B64Str
 from sigstore.oidc import IdentityToken
+import configparser
 
 _logger = logging.getLogger(__name__)
 
-DEFAULT_FULCIO_URL = "https://fulcio.sigstore.dev"
-STAGING_FULCIO_URL = "https://fulcio.sigstage.dev"
+config = configparser.ConfigParser()
+config.read('stack_config.ini')
+
+DEFAULT_FULCIO_URL = config['settings']['fulcio-url']
+STAGING_FULCIO_URL = config['settings']['fulcio-url']
 SIGNING_CERT_ENDPOINT = "/api/v2/signingCert"
 TRUST_BUNDLE_ENDPOINT = "/api/v2/trustBundle"
 
