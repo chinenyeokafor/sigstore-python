@@ -32,3 +32,6 @@ build
 
 #Ignore test artifact
 artifact
+
+#Ignore output files
+*credentials*
