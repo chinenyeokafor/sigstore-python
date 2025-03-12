@@ -44,6 +44,8 @@ _logger = logging.getLogger(__name__)
 config = configparser.ConfigParser()
 config.read('stack_config.ini')
 
+# DEFAULT_FULCIO_URL = "https://fulcio.sigstore.dev"
+# STAGING_FULCIO_URL = "https://fulcio.sigstage.dev"
 DEFAULT_FULCIO_URL = config['settings']['fulcio-url']
 STAGING_FULCIO_URL = config['settings']['fulcio-url']
 SIGNING_CERT_ENDPOINT = "/api/v2/signingCert"

@@ -40,6 +40,8 @@ config.read('stack_config.ini')
 DEFAULT_REKOR_URL = config['settings']['rekor-url']
 STAGING_REKOR_URL = config['settings']['rekor-url']
 
+# DEFAULT_REKOR_URL = "https://rekor.sigstore.dev"
+# STAGING_REKOR_URL = "https://rekor.sigstage.dev"
 
 @dataclass(frozen=True)
 class RekorLogInfo:

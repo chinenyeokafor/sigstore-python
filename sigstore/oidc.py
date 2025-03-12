@@ -33,9 +33,17 @@ from pydantic import BaseModel, StrictStr
 
 from sigstore._internal import USER_AGENT
 from sigstore.errors import Error, NetworkError
+import configparser
 
-DEFAULT_OAUTH_ISSUER_URL = "https://oauth2.sigstore.dev/auth"
-STAGING_OAUTH_ISSUER_URL = "https://oauth2.sigstage.dev/auth"
+
+config = configparser.ConfigParser()
+config.read('stack_config.ini')
+
+DEFAULT_OAUTH_ISSUER_URL = config['settings']['oauth_issuer-url']
+STAGING_OAUTH_ISSUER_URL = config['settings']['oauth_issuer-url']
+
+# DEFAULT_OAUTH_ISSUER_URL = "https://oauth2.sigstore.dev/auth"
+# STAGING_OAUTH_ISSUER_URL = "https://oauth2.sigstage.dev/auth"
 
 # See: https://github.com/sigstore/fulcio/blob/b2186c0/pkg/config/config.go#L182-L201
 _KNOWN_OIDC_ISSUERS = {
